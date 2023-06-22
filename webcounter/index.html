@@ -1,0 +1,27 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Counter App</h1>
+    <p>Count: <span id="count">0</span></p>
+    <button id="incrementBtn">Increment</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#incrementBtn').click(function() {
+                $.ajax({
+                    url: '/increment',
+                    type: 'POST',
+                    success: function(response) {
+                        $('#count').text(response);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
