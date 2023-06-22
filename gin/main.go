@@ -9,7 +9,6 @@ var db = make(map[string]string)
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
-
 	// Ping test
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
@@ -24,7 +23,6 @@ func setupRouter() *gin.Engine {
 			c.JSON(http.StatusOK, gin.H{"user": user, "status": "no value"})
 		}
 	})
-
 	// Authorized group (uses gin.BasicAuth() middleware)
 	// Same than:
 	// authorized := r.Group("/")
@@ -48,21 +46,17 @@ func setupRouter() *gin.Engine {
 	*/
 	authorized.POST("admin", func(c *gin.Context) {
 		user := c.MustGet(gin.AuthUserKey).(string)
-
 		// Parse JSON
 		var json struct {
 			Value string `json:"value" binding:"required"`
 		}
-
 		if c.Bind(&json) == nil {
 			db[user] = json.Value
 			c.JSON(http.StatusOK, gin.H{"status": "ok"})
 		}
 	})
-
 	return r
 }
-
 func main() {
 	r := setupRouter()
 	// Listen and Server in 0.0.0.0:8080
