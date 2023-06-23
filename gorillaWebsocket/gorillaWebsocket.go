@@ -18,7 +18,7 @@ func main ()  {
 			 if err != nil {
 				return 
 			 }
-             fmt.Printf("%s sent: %s\n", conn.RemoteAddr(),string(msg))
+             fmt.Printf("%s -> %s sent: %s\n", conn.RemoteAddr(),string(msg),string("1111"))
 
 			 if err = conn.WriteMessage(msgType, msg); err != nil {
 				return 
