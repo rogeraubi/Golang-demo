@@ -22,7 +22,7 @@ func main() {
 		data := TodoPageData {
 			PageTitle: "Demo",
 			Todos: []Todo {
-				{Title:"Task1",Done: true},
+				{Title:"Task1",Done: false},
 				{Title:"Task2",Done: true},
 			},
 		}

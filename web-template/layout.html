@@ -3,7 +3,7 @@
    {{range .Todos}}
 
       {{ if .Done }}
-         <li class="done"> {{ .Title}}</li>
+         <li class="done" style="color: red"> {{ .Title}}</li>
       {{ else}}
       <li>{{.Title}}</li>
       {{end}}
