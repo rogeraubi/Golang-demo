@@ -18,7 +18,6 @@ func main() {
 	}
 
 	defer cancel1()
-
 		ctx, cancel := context.WithCancel(context.Background())
 	    defer cancel()
 	    for n:= range gen(ctx) {
