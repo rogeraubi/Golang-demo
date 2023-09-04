@@ -16,8 +16,8 @@ func main() {
 	msg1 =<-messages
 	fmt.Println(msg1)
 
-	// msg1 =<-messages
+	msg1 =<-messages
 
-	// fmt.Println(msg1)
+	fmt.Println(msg1)
 	fmt.Println(<-messages)
 }
